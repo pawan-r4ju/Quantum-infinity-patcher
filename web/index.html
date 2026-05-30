@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QIP Review — Quantum Infinity Patcher</title>
+    <link rel="stylesheet" href="/style.css">
+    <!-- diff2html for rendering diffs -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/diff2html/bundles/css/diff2html.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/diff2html/bundles/js/diff2html-ui.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1>🛡️ QIP Review</h1>
+            <span class="run-id" id="runId">Loading...</span>
+        </div>
+        <div class="header-right">
+            <div class="stats">
+                <span class="stat approved" id="statApproved">0 approved</span>
+                <span class="stat rejected" id="statRejected">0 rejected</span>
+                <span class="stat pending" id="statPending">0 pending</span>
+            </div>
+            <button class="btn btn-deploy" id="btnDeploy" disabled>Deploy Approved</button>
+        </div>
+    </header>
+
+    <main>
+        <aside class="sidebar" id="patchList">
+            <!-- Patch list populated by JS -->
+        </aside>
+
+        <section class="content">
+            <div class="patch-header" id="patchHeader">
+                <h2 id="patchTitle">Select a patch to review</h2>
+                <div class="meta" id="patchMeta"></div>
+            </div>
+
+            <div class="diff-container" id="diffContainer">
+                <p class="placeholder">← Select a patch from the sidebar to view the diff</p>
+            </div>
+
+            <div class="actions" id="patchActions" style="display:none">
+                <button class="btn btn-approve" id="btnApprove" title="Approve (a)">✅ Approve</button>
+                <button class="btn btn-reject" id="btnReject" title="Reject (r)">❌ Reject</button>
+                <button class="btn btn-skip" id="btnSkip" title="Skip (s)">⏭️ Skip</button>
+            </div>
+        </section>
+    </main>
+
+    <div class="keyboard-help" id="keyboardHelp" style="display:none">
+        <h3>Keyboard Shortcuts</h3>
+        <table>
+            <tr><td><kbd>a</kbd></td><td>Approve current patch</td></tr>
+            <tr><td><kbd>r</kbd></td><td>Reject current patch</td></tr>
+            <tr><td><kbd>s</kbd></td><td>Skip current patch</td></tr>
+            <tr><td><kbd>j</kbd></td><td>Next patch</td></tr>
+            <tr><td><kbd>k</kbd></td><td>Previous patch</td></tr>
+            <tr><td><kbd>?</kbd></td><td>Toggle this help</td></tr>
+        </table>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>

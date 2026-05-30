@@ -1,0 +1,24 @@
+# Example QIP configuration — copy to .qip.yaml in your project root
+
+scanners:
+  - grype
+  - pip-audit
+  # - trivy
+  # - npm-audit
+
+severity_threshold: medium   # low | medium | high | critical
+
+auto_approve_confidence: 0.95  # patches above this confidence get auto-approved
+
+max_patches_per_run: 20
+
+test_command: "pytest --tb=short -q"
+
+review:
+  host: "127.0.0.1"
+  port: 8500
+
+docker:
+  image: "qip-agent:latest"
+  memory_limit: "2g"
+  cpu_limit: 2

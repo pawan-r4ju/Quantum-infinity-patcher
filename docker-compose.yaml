@@ -1,0 +1,21 @@
+services:
+  qip-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./test-repo:/repo:ro
+      - ./output:/output
+      - ~/.qip/vuln-db:/vuln-db:ro
+    network_mode: "none"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 256
+    mem_limit: 4g
+    cpus: 2
+    read_only: true
+    tmpfs:
+      - /tmp:size=512M
+    user: "1000:1000"
